@@ -52,16 +52,12 @@
 }
 
 .club-page__filter__item {
-  /*margin-right: 10px;
-  margin-bottom: 10px;*/
-  margin-right: 1vmin;
-  margin-bottom: 1vmin;
+  margin-right: 1vmin; /*10px;*/
+  margin-bottom: 1vmin; /*10px;*/
   display: inline-block;
   text-align: center;
-  /*font-size: 15px;*/
   font-size: 2vmin; /*14px;*/
-  /*line-height: 40px;*/
-  line-height: 5vmin;
+  line-height: 5vmin; /*40px;*/
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -84,8 +80,7 @@
 }
 
 .ClubInform {
-  /*padding: 0 15px 15px 10px;*/
-  padding: 0 1.3vmin 1.3vmin 1.3vmin;
+  padding: 0 1.3vmin 1.3vmin 1.3vmin; /*padding: 0 15px 15px 10px;*/
   font-size: 1.2vmin; /*13px;*/
 }
 
