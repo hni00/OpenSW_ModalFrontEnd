@@ -7,26 +7,40 @@ function ModalForm(props) {
   const ClubData = [
     {
       id: 1,
-      tags: ['모집중', '중동', '예술', '봉사'],
+      tags: ['모집중', '중동', '학과', '보드게임'],
       img: '/clubImg.png',
       title: 'Club Name1',
       description: '동아리 설명1',
+      intro: '보드게임을 좋아하고 즐길 사람 모여라~!',
+      activity: '팀을 맺어 팀 대항전을 진행합니다',
+      method: '/',
+      condition: '보드게임에 관심이 많은 순천향대학교 재학생',
       description_detail: '동아리 설명1',
     },
     {
       id: 2,
-      tags: ['모집중', '학술', '어학'],
+      tags: ['모집중', '중동', '예술'],
       img: '/clubImg.png',
       title: 'Club Name2',
       description: '동아리 설명2',
+      intro: '엔터테인먼트/방송/콘텐츠/미디어 분야',
+      activity:
+        '엔터테인먼트/방송/콘텐츠/미디어 분야의 다양한 세부 과정들을 실제로 진행!',
+      method: '/',
+      condition: '엔터테인먼트/방송/콘텐츠/미디어 분야에 관심있는 재학생',
       description_detail: '동아리 설명2',
     },
     {
       id: 3,
-      tags: ['모집마감', '학과', '체육'],
+      tags: ['모집마감', '중동', '여행', '취미'],
       img: '/clubImg.png',
       title: 'Club Name3',
       description: '동아리 설명3',
+      intro: '저희와 함께 여행 떠나실 나드리분들을 모집합니다.',
+      activity: '여행, 캠핑~~',
+      method: '/',
+      condition:
+        '일상에 지치거나 다양한 분야의 사람들과 교류하고 싶은 순천향대학교 재학생',
       description_detail: '동아리 설명3',
     },
   ];
@@ -41,78 +55,34 @@ function ModalForm(props) {
     setModalOpen(false);
   };
 
-  return (
-    <div className='App'>
-      {/*
-      <React.Fragment>
-        <button onClick={openModal}>Club Button</button>
-        <Modal open={modalOpen} close={closeModal} header='CLUB NAME'>
-          
-          <span className='blog-page__filter__item'>#모집중</span>
-          <span className='blog-page__filter__item'>#중동</span>
-          <span className='blog-page__filter__item'>#예술</span>
-          <span className='blog-page__filter__item'>#봉사</span>
+  // 태그 출력
+  const tagPrint = () => {
+    const result = [];
+    for (let i = 0; i < ClubData[props.ClubId].tags.length; i++) {
+      result.push(
+        <span className='club-page__filter__item'>
+          {'#' + ClubData[props.ClubId].tags[i]}
+        </span>
+      );
+    }
+    return result;
+  };
 
-          <div className='Club-Main'>
-            <div className='Club-Img'>
-              <img src='/clubImg.png' className='Club-logo' alt='logo' />
-            </div>
-            <div className='Club-script'>
-              설명_______________<br></br>
-              ·소개<br></br>
-              <br></br>
-              ·활동내용<br></br>
-              <br></br>
-              ·지원방법<br></br>
-              <br></br>
-              ·조건<br></br>
-              <br></br>
-            </div>
-          </div>
-          <div className='Club-script-detail'>
-            로직 자체는 생각보다 단순합니다. 리액트의 컴포넌트와, props, state를
-            이용하면 되는 간단한 문제였는데... 약~간 헤맸던 이유는 저는 여러가지
-            요소를 map으로 나열했는데, 모달 열고 닫기 state가 하나로
-            통일되어있기 때문에, 클릭했을 때 전부 열려버리거나 전부 닫혀버리는
-            상황이 펼쳐졌기 때문입니다.
-          </div>
-        </Modal>
-      </React.Fragment>
-        
-      {/*
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-  */}
-      {/* 
-      <button onClick={openModal}>Club Button</button>*/}
+  return (
+    <div className='Modal'>
+      {/* <button onClick={openModal}>Club Button</button> */}
+      {/* 클릭 시 모달창 오픈 */}
       <a onClick={openModal}>Modal</a>
       <Modal
         open={modalOpen}
         close={closeModal}
         header={ClubData[props.ClubId].title}
       >
-        {/* 태그*/}
-        <span className='club-page__filter__item'>
-          #{ClubData[props.ClubId].tags[0]}
-        </span>
-        <span className='club-page__filter__item'>
-          #{ClubData[props.ClubId].tags[2]}
-        </span>
-        <span className='club-page__filter__item'>#중동</span>
-        <span className='club-page__filter__item'>#예술</span>
+        {/* 태그 구현*/}
+        {tagPrint()}
+
         <div className='Club-Main'>
+          {/* img 구현 */}
           <div className='Club-Img'>
             <img
               src={ClubData[props.ClubId].img}
@@ -120,31 +90,30 @@ function ModalForm(props) {
               alt='logo'
             />
           </div>
+          {/* 동아리 설명 */}
           <div className='Club-script'>
             <div className='FontHeader'>
               {ClubData[props.ClubId].description}
             </div>
-
+            {/* 동아리 소개 구현 */}
             <div className='Font'>ㆍ소개</div>
-            <div className='ClubInform'>
-              보드게임을 좋아하고 즐길 사람 모여라~!
-            </div>
+            <div className='ClubInform'>{ClubData[props.ClubId].intro}</div>
+            {/* 동아리 활동 내용 구현 */}
             <div className='Font'>ㆍ활동내용</div>
-            <div className='ClubInform'>
-              각 요일끼리 팀을 맺어 팀 대항전을 진행합니다.
-            </div>
+            <div className='ClubInform'>{ClubData[props.ClubId].activity}</div>
+            {/* 동아리 지원방법 구현*/}
             <div className='Font'>ㆍ지원방법</div>
             <div className='ClubInform'>
-              <a href='/'>신청링크</a>
+              <a href={ClubData[props.ClubId].method}>신청링크</a>
             </div>
+            {/* 동아리 지원 조건 구현*/}
             <div className='Font'>ㆍ조건</div>
-            <div className='ClubInform'>
-              보드게임에 관심이 많은 순천향대학교 재학생
-            </div>
+            <div className='ClubInform'>{ClubData[props.ClubId].condition}</div>
           </div>
         </div>
+        {/* 동아리 추가 설명 부분 */}
         <div className='Club-script-detail'>
-          <div>+Add Club Inform.</div>
+          <div className='Font'>+Add Club Inform.</div>
           <div>
             3월 에타에 올라왔던 보드게임 동아리 모집 공고 기억 하시나요? 그
             이후에도 정말 많은 분들이 "추가모집 안하나요?" 라는 문의를 정말 많이

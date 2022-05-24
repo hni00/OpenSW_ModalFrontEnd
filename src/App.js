@@ -6,7 +6,7 @@ import ModalForm from './Component/ModalForm';
 function App() {
   return (
     <div>
-      <ModalForm ClubId={1}></ModalForm>
+      <ModalForm ClubId={0}></ModalForm>
     </div>
   );
 }

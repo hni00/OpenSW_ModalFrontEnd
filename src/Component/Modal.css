@@ -24,14 +24,14 @@
   animation: modal-show 0.3s;
   overflow: hidden;
 }
-/* 동아리 제목 */
+/* 동아리 제목(헤더부분) */
 .modal > section > header {
   position: relative;
   padding: 16px 64px 16px 16px;
   background-color: #f1f1f1;
   font-weight: 700;
 }
-/* 창 닫기 */
+/* 창 닫기 버튼 */
 .modal > section > header button {
   position: absolute;
   top: 15px;

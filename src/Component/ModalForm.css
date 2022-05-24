@@ -1,4 +1,4 @@
-.App {
+.Modal {
   text-align: center;
 }
 
@@ -84,7 +84,8 @@
 }
 
 .ClubInform {
-  padding: 0 15px 15px 10px;
+  /*padding: 0 15px 15px 10px;*/
+  padding: 0 1.3vmin 1.3vmin 1.3vmin;
   font-size: 1.2vmin; /*13px;*/
 }
 
