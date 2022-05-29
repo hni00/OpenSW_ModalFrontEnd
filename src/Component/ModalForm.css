@@ -45,6 +45,7 @@
 
 .Club-script-detail {
   width: 80vmin;
+  margin: 0 auto; /* margin auto 추가 */
   text-align: left;
   font-size: 2vmin; /*14px;*/
   /* 배경색으로 디자인 확인 

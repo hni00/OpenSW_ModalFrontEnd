@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import './Component/Modal.css';
 import './App.css';
 import ModalForm from './Component/ModalForm';
@@ -6,7 +6,7 @@ import ModalForm from './Component/ModalForm';
 function App() {
   return (
     <div>
-      <ModalForm ClubId={0}></ModalForm>
+      <ModalForm ClubId={1}></ModalForm>
     </div>
   );
 }
